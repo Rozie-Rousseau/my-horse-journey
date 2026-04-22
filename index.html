@@ -1,334 +1,497 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Rozella's Riding Journey</title>
-    <style>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rozella's Riding Journey</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Lato:wght@300;400&display=swap" rel="stylesheet"/>
+  <style>
 
-      /* This styles the whole page */
-      body {
-        font-family: Georgia, serif;
-        background-color: #f5f0e8;
-        color: #3b2a1a;
-        margin: 0;
-        padding: 0;
-      }
+    /* ── BASE ── */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Lato', sans-serif;
+      background: #faf6f0;
+      color: #2c1810;
+      font-weight: 300;
+    }
 
-      /* The big hero section at the top */
-      .hero {
-        text-align: center;
-        padding: 60px 20px;
-        background-color: #3b2a1a;
-        color: #f5f0e8;
-      }
+    /* ── HERO ── */
+    .hero {
+      background: #2c1810;
+      color: #faf6f0;
+      text-align: center;
+      padding: 70px 20px 50px;
+    }
+    .hero .eyebrow {
+      font-size: 12px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #c9a87c;
+      margin-bottom: 16px;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 52px;
+      font-weight: 400;
+      letter-spacing: 1px;
+      margin-bottom: 16px;
+    }
+    .hero-line {
+      width: 60px;
+      height: 1px;
+      background: #c9a87c;
+      margin: 0 auto 16px;
+    }
+    .hero .subtitle {
+      font-size: 14px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #c9a87c;
+    }
 
-      .hero h1 {
-        font-size: 48px;
-        margin-bottom: 10px;
-      }
+    /* ── NAV ── */
+    nav {
+      background: #3d2314;
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      padding: 16px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    nav a {
+      color: #c9a87c;
+      font-size: 11px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      text-decoration: none;
+      font-weight: 400;
+      transition: color 0.2s;
+    }
+    nav a:hover { color: #faf6f0; }
 
-      .hero p {
-        font-size: 20px;
-        color: #c9a87c;
-      }
+    /* ── ABOUT ── */
+    .about {
+      display: flex;
+      align-items: center;
+      gap: 48px;
+      max-width: 780px;
+      margin: 64px auto;
+      padding: 0 32px;
+    }
+    .about-img {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #c9a87c;
+      flex-shrink: 0;
+      background: #d4b896;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 60px;
+    }
+    .about h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      font-weight: 400;
+      margin-bottom: 12px;
+      color: #2c1810;
+    }
+    .about p {
+      font-size: 16px;
+      line-height: 1.9;
+      color: #6b4c2a;
+    }
 
-      /* The about section with your photo */
-      .about {
-        display: flex;
-        align-items: center;
-        gap: 40px;
-        max-width: 800px;
-        margin: 60px auto;
-        padding: 0 20px;
-      }
+    /* ── SECTION TITLE ── */
+    .section-title {
+      text-align: center;
+      margin: 20px 0 36px;
+    }
+    .section-title h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      font-weight: 400;
+      color: #2c1810;
+    }
+    .section-title .line {
+      width: 50px;
+      height: 1px;
+      background: #c9a87c;
+      margin: 14px auto 0;
+    }
 
-      .about img {
-        width: 250px;
-        border-radius: 12px;
-      }
+    /* ── TIMELINE ── */
+    .timeline {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+    }
 
-      .about h2 {
-        font-size: 36px;
-        margin-bottom: 10px;
-      }
+    /* ── CHAPTER CARD ── */
+    .chapter {
+      background: #fff8f2;
+      border: 0.5px solid #d4b896;
+      border-radius: 12px;
+      margin-bottom: 14px;
+      overflow: hidden;
+    }
+    .chapter-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 18px 22px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .chapter-header:hover { background: #f5ede0; }
+    .year-badge {
+      background: #2c1810;
+      color: #c9a87c;
+      font-size: 11px;
+      padding: 5px 12px;
+      border-radius: 99px;
+      letter-spacing: 1px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .chapter-info { flex: 1; }
+    .chapter-info h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      font-weight: 400;
+      color: #2c1810;
+      margin-bottom: 3px;
+    }
+    .chapter-info span {
+      font-size: 12px;
+      color: #9b7040;
+      letter-spacing: 0.5px;
+    }
+    .chevron {
+      color: #c9a87c;
+      font-size: 13px;
+      transition: transform 0.3s;
+      flex-shrink: 0;
+    }
+    .chapter.open .chevron { transform: rotate(180deg); }
 
-      .about p {
-        font-size: 18px;
-        line-height: 1.7;
-        color: #6b4c2a;
-      }
+    /* ── CHAPTER BODY ── */
+    .chapter-body {
+      display: none;
+      border-top: 0.5px solid #d4b896;
+      padding: 24px;
+      background: #fffcf8;
+    }
+    .chapter.open .chapter-body { display: block; }
+    .chapter-body p {
+      font-size: 15px;
+      line-height: 1.9;
+      color: #5a3e28;
+      margin-bottom: 20px;
+    }
 
-      /* The timeline container */
-      .timeline {
-        max-width: 700px;
-        margin: 40px auto;
-        padding: 0 20px;
-      }
+    /* ── VIDEO ── */
+    .video-wrap {
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 12px;
+      background: #2c1810;
+    }
+    .video-wrap iframe {
+      width: 100%;
+      height: 360px;
+      display: block;
+      border: none;
+    }
+    .video-placeholder {
+      background: #2c1810;
+      border-radius: 10px;
+      padding: 40px 20px;
+      text-align: center;
+      color: #c9a87c;
+      font-size: 13px;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+    }
+    .video-placeholder .play-icon {
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
 
-      .timeline h2 {
-        text-align: center;
-        font-size: 32px;
-        margin-bottom: 40px;
-        color: #6b3f1f;
-      }
+    /* ── WIN BADGE ── */
+    .win-badge {
+      display: inline-block;
+      background: #c9a87c;
+      color: #2c1810;
+      font-size: 11px;
+      padding: 5px 16px;
+      border-radius: 99px;
+      letter-spacing: 1px;
+      margin-bottom: 14px;
+    }
 
-      /* Each chapter button you click */
-      .chapter {
-        background-color: #fff8f0;
-        border: 1.5px solid #c9a87c;
-        border-radius: 12px;
-        margin-bottom: 16px;
-        overflow: hidden;
-      }
+    /* ── DIVIDER between timeline sections ── */
+    .timeline-divider {
+      text-align: center;
+      margin: 36px 0 24px;
+      position: relative;
+    }
+    .timeline-divider::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: #d4b896;
+    }
+    .timeline-divider span {
+      position: relative;
+      background: #faf6f0;
+      padding: 0 16px;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #9b7040;
+    }
 
-      .chapter-header {
-        display: flex;
-        align-items: center;
-        gap: 16px;
-        padding: 18px 20px;
-        cursor: pointer;
-        user-select: none;
-      }
+    /* ── FOOTER ── */
+    footer {
+      background: #2c1810;
+      color: #c9a87c;
+      text-align: center;
+      padding: 30px;
+      font-size: 12px;
+      letter-spacing: 1px;
+    }
 
-      .chapter-header:hover {
-        background-color: #f0e0c8;
-      }
+  </style>
+</head>
+<body>
 
-      .chapter-icon {
-        font-size: 28px;
-      }
+  <!-- HERO -->
+  <div class="hero">
+    <p class="eyebrow">Welcome to</p>
+    <h1>My Riding Journey</h1>
+    <div class="hero-line"></div>
+    <p class="subtitle">Rozella Rousseau</p>
+  </div>
 
-      .chapter-title {
-        flex: 1;
-      }
+  <!-- NAV — each link scrolls to a section -->
+  <nav>
+    <a href="#story">My Story</a>
+    <a href="#journey">The Journey</a>
+    <a href="#shows">Shows</a>
+    <a href="#adventures">Adventures</a>
+  </nav>
 
-      .chapter-title h3 {
-        font-size: 18px;
-        margin: 0;
-        color: #3b2a1a;
-      }
-
-      .chapter-title span {
-        font-size: 13px;
-        color: #9b7040;
-      }
-
-      .chapter-arrow {
-        font-size: 14px;
-        color: #9b7040;
-        transition: transform 0.3s;
-      }
-
-      /* The hidden detail section inside each chapter */
-      .chapter-detail {
-        display: none;
-        padding: 20px;
-        border-top: 1px solid #c9a87c;
-        background-color: #fffaf4;
-      }
-
-      .chapter-detail p {
-        font-size: 15px;
-        line-height: 1.7;
-        color: #5a3e28;
-        margin-bottom: 16px;
-      }
-
-      /* Video placeholder boxes */
-      .video-placeholder {
-        background-color: #e8ddd0;
-        border: 1.5px dashed #c9a87c;
-        border-radius: 8px;
-        padding: 30px;
-        text-align: center;
-        color: #9b7040;
-        font-size: 14px;
-        margin-bottom: 10px;
-      }
-
-      /* Badge for special achievements */
-      .badge {
-        display: inline-block;
-        background-color: #6b3f1f;
-        color: #f5f0e8;
-        font-size: 12px;
-        padding: 4px 12px;
-        border-radius: 99px;
-        margin-bottom: 12px;
-      }
-
-    </style>
-  </head>
-  <body>
-
-    <!-- HERO SECTION -->
-    <div class="hero">
-      <h1>My Riding Journey</h1>
-      <p>From a little kid who loved horses, to the rider I am today</p>
-    </div>
-
-    <!-- ABOUT SECTION -->
+  <!-- ABOUT / MY STORY -->
+  <section id="story">
     <div class="about">
-      <!-- Replace the src below with your real photo path later -->
-      <img src="your-photo.jpg" alt="Rozella" />
+      <!-- swap src for your real photo later! -->
+      <div class="about-img">🐴</div>
       <div>
         <h2>Hello, I am Rozella!</h2>
         <p>An aspiring veterinarian who loves being outdoors, adventures, and new experiences. I am also completely obsessed with horses.</p>
       </div>
     </div>
+  </section>
 
-    <!-- TIMELINE -->
+  <!-- TIMELINE -->
+  <section id="journey">
+    <div class="section-title">
+      <h2>The Journey</h2>
+      <div class="line"></div>
+    </div>
+
     <div class="timeline">
-      <h2>My Journey</h2>
 
-      <!-- CHAPTER 1 -->
+      <!-- Chapter 1 -->
       <div class="chapter">
         <div class="chapter-header" onclick="toggleChapter(this)">
-          <div class="chapter-icon">🐴</div>
-          <div class="chapter-title">
+          <div class="year-badge">Always</div>
+          <div class="chapter-info">
             <h3>Horse Lover</h3>
-            <span>Always & forever</span>
+            <span>Where it all began</span>
           </div>
-          <div class="chapter-arrow">▼</div>
+          <div class="chevron">▼</div>
         </div>
-        <div class="chapter-detail">
+        <div class="chapter-body">
           <p>I have always loved horses from a very young age. Little did I know what the future held for us.</p>
-          <div class="video-placeholder">📷 Add your Clydesdale photos here</div>
-        </div>
-      </div>
-
-      <!-- CHAPTER 2 -->
-      <div class="chapter">
-        <div class="chapter-header" onclick="toggleChapter(this)">
-          <div class="chapter-icon">🌱</div>
-          <div class="chapter-title">
-            <h3>Young Rider</h3>
-            <span>Brookson Farms, Ottawa — 2017</span>
+          <div class="video-placeholder">
+            <div class="play-icon">📷</div>
+            Photos coming soon
           </div>
-          <div class="chapter-arrow">▼</div>
-        </div>
-        <div class="chapter-detail">
-          <p>I started riding in 2017 at Brookson Farms in Ottawa, Canada. We learned how to tack, ride, and care for horses. This is where the spark truly started.</p>
-          <div class="video-placeholder">🎥 Add your video here</div>
         </div>
       </div>
 
-      <!-- CHAPTER 3 -->
+      <!-- Chapter 2 -->
       <div class="chapter">
         <div class="chapter-header" onclick="toggleChapter(this)">
-          <div class="chapter-icon">🍁</div>
-          <div class="chapter-title">
+          <div class="year-badge">2017</div>
+          <div class="chapter-info">
+            <h3>Young Rider</h3>
+            <span>Brookson Farms · Ottawa, Canada</span>
+          </div>
+          <div class="chevron">▼</div>
+        </div>
+        <div class="chapter-body">
+          <p>I started riding in 2017 at Brookson Farms in Ottawa, Canada. We learned how to tack, ride, and care for horses. This is where the spark truly started.</p>
+          <div class="video-placeholder">
+            <div class="play-icon">▶</div>
+            Video coming soon
+          </div>
+        </div>
+      </div>
+
+      <!-- Chapter 3 -->
+      <div class="chapter">
+        <div class="chapter-header" onclick="toggleChapter(this)">
+          <div class="year-badge">Coming soon</div>
+          <div class="chapter-info">
             <h3>Back to Canada</h3>
             <span>Turnout Stables</span>
           </div>
-          <div class="chapter-arrow">▼</div>
+          <div class="chevron">▼</div>
         </div>
-        <div class="chapter-detail">
+        <div class="chapter-body">
           <p>We visited our old hometown and rode at Turnout Stables. Here we tried our jumping skills and had fun in the sun.</p>
-          <div class="video-placeholder">🎥 Add your video here</div>
+          <div class="video-placeholder">
+            <div class="play-icon">▶</div>
+            Video coming soon
+          </div>
         </div>
       </div>
 
-      <!-- CHAPTER 4 -->
+      <!-- Chapter 4 -->
       <div class="chapter">
         <div class="chapter-header" onclick="toggleChapter(this)">
-          <div class="chapter-icon">🤠</div>
-          <div class="chapter-title">
+          <div class="year-badge">2022–2024</div>
+          <div class="chapter-info">
             <h3>Coming to Texas</h3>
-            <span>Wells Stables — 2022 to 2024</span>
+            <span>Wells Stables</span>
           </div>
-          <div class="chapter-arrow">▼</div>
+          <div class="chevron">▼</div>
         </div>
-        <div class="chapter-detail">
+        <div class="chapter-body">
           <p>I joined Wells Stables in 2022 and remained with them until 2024. I learned the basics of horse showing in both the English and Western divisions.</p>
-          <div class="video-placeholder">🎥 Add your video here</div>
-        </div>
-      </div>
-
-      <!-- CHAPTER 5 -->
-      <div class="chapter">
-        <div class="chapter-header" onclick="toggleChapter(this)">
-          <div class="chapter-icon">🏟️</div>
-          <div class="chapter-title">
-            <h3>Show 1 — Lone Star Youth</h3>
-            <span>San Patricio Fairgrounds — May 2023</span>
+          <div class="video-placeholder">
+            <div class="play-icon">▶</div>
+            Video coming soon
           </div>
-          <div class="chapter-arrow">▼</div>
-        </div>
-        <div class="chapter-detail">
-          <p>My first ever horse show at the Lone Star Youth Horse Association at San Patricio Fairgrounds. A huge milestone in my riding journey!</p>
-          <div class="video-placeholder">🎥 Add your show video here</div>
         </div>
       </div>
 
-      <!-- CHAPTER 6 -->
+      <!-- Chapter 5 -->
       <div class="chapter">
         <div class="chapter-header" onclick="toggleChapter(this)">
-          <div class="chapter-icon">🥇</div>
-          <div class="chapter-title">
-            <h3>Show 2 — High Point Winner!</h3>
-            <span>San Patricio Fairgrounds — September 2023</span>
-          </div>
-          <div class="chapter-arrow">▼</div>
-        </div>
-        <div class="chapter-detail">
-          <span class="badge">🏆 High Point Winner</span>
-          <p>My second show at the Lone Star Youth Horse Association — and I won High Point! All the hard work and early mornings paid off.</p>
-          <div class="video-placeholder">🎥 Add your winning video here</div>
-        </div>
-      </div>
-
-      <!-- CHAPTER 7 -->
-      <div class="chapter">
-        <div class="chapter-header" onclick="toggleChapter(this)">
-          <div class="chapter-icon">🫐</div>
-          <div class="chapter-title">
+          <div class="year-badge">Coming soon</div>
+          <div class="chapter-info">
             <h3>Blueberry Creek</h3>
-            <span>San Antonio</span>
+            <span>San Antonio, Texas</span>
           </div>
-          <div class="chapter-arrow">▼</div>
+          <div class="chevron">▼</div>
         </div>
-        <div class="chapter-detail">
-          <p>Lessons at Blueberry Creek in San Antonio — another great experience adding to my skills as a rider.</p>
-          <div class="video-placeholder">🎥 Add your video here</div>
+        <div class="chapter-body">
+          <p>Lessons at Blueberry Creek in San Antonio — another great stable adding new skills to my riding.</p>
+          <div class="video-placeholder">
+            <div class="play-icon">▶</div>
+            Video coming soon
+          </div>
         </div>
       </div>
 
-      <!-- CHAPTER 8 -->
+      <!-- SHOWS DIVIDER -->
+      <div class="timeline-divider" id="shows">
+        <span>Shows</span>
+      </div>
+
+      <!-- Chapter 6 — Show 1 -->
       <div class="chapter">
         <div class="chapter-header" onclick="toggleChapter(this)">
-          <div class="chapter-icon">🌊</div>
-          <div class="chapter-title">
+          <div class="year-badge">May 2023</div>
+          <div class="chapter-info">
+            <h3>Show 1 — Lone Star Youth</h3>
+            <span>San Patricio Fairgrounds</span>
+          </div>
+          <div class="chevron">▼</div>
+        </div>
+        <div class="chapter-body">
+          <p>My very first horse show at the Lone Star Youth Horse Association. A huge milestone in my riding journey!</p>
+          <div class="video-placeholder">
+            <div class="play-icon">▶</div>
+            Video coming soon
+          </div>
+        </div>
+      </div>
+
+      <!-- Chapter 7 — Show 2 -->
+      <div class="chapter">
+        <div class="chapter-header" onclick="toggleChapter(this)">
+          <div class="year-badge">Sept 2023</div>
+          <div class="chapter-info">
+            <h3>Show 2 — High Point Winner!</h3>
+            <span>San Patricio Fairgrounds · Lone Star Youth</span>
+          </div>
+          <div class="chevron">▼</div>
+        </div>
+        <div class="chapter-body">
+          <span class="win-badge">🏆 High Point Winner</span>
+          <p>My second show and I won High Point. All the hard work and early mornings paid off!</p>
+          <!-- REPLACE the src below with your real YouTube embed link! -->
+          <div class="video-placeholder">
+            <div class="play-icon">▶</div>
+            Your show video goes here — paste your YouTube link and I'll add it!
+          </div>
+        </div>
+      </div>
+
+      <!-- ADVENTURES DIVIDER -->
+      <div class="timeline-divider" id="adventures">
+        <span>Adventures</span>
+      </div>
+
+      <!-- Chapter 8 -->
+      <div class="chapter">
+        <div class="chapter-header" onclick="toggleChapter(this)">
+          <div class="year-badge">Coming soon</div>
+          <div class="chapter-info">
             <h3>Beach Riding & Trail Adventures</h3>
             <span>The fun ones</span>
           </div>
-          <div class="chapter-arrow">▼</div>
+          <div class="chevron">▼</div>
         </div>
-        <div class="chapter-detail">
+        <div class="chapter-body">
           <p>Some of my favorite memories on horseback — riding along the beach and exploring trails. Pure joy.</p>
-          <div class="video-placeholder">🎥 Add your beach/trail videos here</div>
+          <div class="video-placeholder">
+            <div class="play-icon">▶</div>
+            Videos & photos coming soon
+          </div>
         </div>
       </div>
 
     </div>
+  </section>
 
-    <!-- JAVASCRIPT — this makes the chapters open and close -->
-    <script>
-      function toggleChapter(header) {
-        const detail = header.nextElementSibling;
-        const arrow = header.querySelector('.chapter-arrow');
-        const isOpen = detail.style.display === 'block';
+  <!-- FOOTER -->
+  <footer>
+    <p>Rozella Rousseau &nbsp;·&nbsp; My Riding Journey</p>
+  </footer>
 
-        // Close all chapters first
-        document.querySelectorAll('.chapter-detail').forEach(d => d.style.display = 'none');
-        document.querySelectorAll('.chapter-arrow').forEach(a => a.style.transform = 'rotate(0deg)');
+  <script>
+    function toggleChapter(header) {
+      const chapter = header.parentElement;
+      const isOpen = chapter.classList.contains('open');
+      document.querySelectorAll('.chapter.open').forEach(c => c.classList.remove('open'));
+      if (!isOpen) chapter.classList.add('open');
+    }
+  </script>
 
-        // Open this one if it was closed
-        if (!isOpen) {
-          detail.style.display = 'block';
-          arrow.style.transform = 'rotate(180deg)';
-        }
-      }
-    </script>
-
-  </body>
+</body>
 </html>
