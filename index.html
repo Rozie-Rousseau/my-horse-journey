@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Rozella's Riding Journey</title>
+    <style>
+
+      /* This styles the whole page */
+      body {
+        font-family: Georgia, serif;
+        background-color: #f5f0e8;
+        color: #3b2a1a;
+        margin: 0;
+        padding: 0;
+      }
+
+      /* The big hero section at the top */
+      .hero {
+        text-align: center;
+        padding: 60px 20px;
+        background-color: #3b2a1a;
+        color: #f5f0e8;
+      }
+
+      .hero h1 {
+        font-size: 48px;
+        margin-bottom: 10px;
+      }
+
+      .hero p {
+        font-size: 20px;
+        color: #c9a87c;
+      }
+
+      /* The about section with your photo */
+      .about {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+        max-width: 800px;
+        margin: 60px auto;
+        padding: 0 20px;
+      }
+
+      .about img {
+        width: 250px;
+        border-radius: 12px;
+      }
+
+      .about h2 {
+        font-size: 36px;
+        margin-bottom: 10px;
+      }
+
+      .about p {
+        font-size: 18px;
+        line-height: 1.7;
+        color: #6b4c2a;
+      }
+
+      /* The timeline container */
+      .timeline {
+        max-width: 700px;
+        margin: 40px auto;
+        padding: 0 20px;
+      }
+
+      .timeline h2 {
+        text-align: center;
+        font-size: 32px;
+        margin-bottom: 40px;
+        color: #6b3f1f;
+      }
+
+      /* Each chapter button you click */
+      .chapter {
+        background-color: #fff8f0;
+        border: 1.5px solid #c9a87c;
+        border-radius: 12px;
+        margin-bottom: 16px;
+        overflow: hidden;
+      }
+
+      .chapter-header {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding: 18px 20px;
+        cursor: pointer;
+        user-select: none;
+      }
+
+      .chapter-header:hover {
+        background-color: #f0e0c8;
+      }
+
+      .chapter-icon {
+        font-size: 28px;
+      }
+
+      .chapter-title {
+        flex: 1;
+      }
+
+      .chapter-title h3 {
+        font-size: 18px;
+        margin: 0;
+        color: #3b2a1a;
+      }
+
+      .chapter-title span {
+        font-size: 13px;
+        color: #9b7040;
+      }
+
+      .chapter-arrow {
+        font-size: 14px;
+        color: #9b7040;
+        transition: transform 0.3s;
+      }
+
+      /* The hidden detail section inside each chapter */
+      .chapter-detail {
+        display: none;
+        padding: 20px;
+        border-top: 1px solid #c9a87c;
+        background-color: #fffaf4;
+      }
+
+      .chapter-detail p {
+        font-size: 15px;
+        line-height: 1.7;
+        color: #5a3e28;
+        margin-bottom: 16px;
+      }
+
+      /* Video placeholder boxes */
+      .video-placeholder {
+        background-color: #e8ddd0;
+        border: 1.5px dashed #c9a87c;
+        border-radius: 8px;
+        padding: 30px;
+        text-align: center;
+        color: #9b7040;
+        font-size: 14px;
+        margin-bottom: 10px;
+      }
+
+      /* Badge for special achievements */
+      .badge {
+        display: inline-block;
+        background-color: #6b3f1f;
+        color: #f5f0e8;
+        font-size: 12px;
+        padding: 4px 12px;
+        border-radius: 99px;
+        margin-bottom: 12px;
+      }
+
+    </style>
+  </head>
+  <body>
+
+    <!-- HERO SECTION -->
+    <div class="hero">
+      <h1>My Riding Journey</h1>
+      <p>From a little kid who loved horses, to the rider I am today</p>
+    </div>
+
+    <!-- ABOUT SECTION -->
+    <div class="about">
+      <!-- Replace the src below with your real photo path later -->
+      <img src="your-photo.jpg" alt="Rozella" />
+      <div>
+        <h2>Hello, I am Rozella!</h2>
+        <p>An aspiring veterinarian who loves being outdoors, adventures, and new experiences. I am also completely obsessed with horses.</p>
+      </div>
+    </div>
+
+    <!-- TIMELINE -->
+    <div class="timeline">
+      <h2>My Journey</h2>
+
+      <!-- CHAPTER 1 -->
+      <div class="chapter">
+        <div class="chapter-header" onclick="toggleChapter(this)">
+          <div class="chapter-icon">🐴</div>
+          <div class="chapter-title">
+            <h3>Horse Lover</h3>
+            <span>Always & forever</span>
+          </div>
+          <div class="chapter-arrow">▼</div>
+        </div>
+        <div class="chapter-detail">
+          <p>I have always loved horses from a very young age. Little did I know what the future held for us.</p>
+          <div class="video-placeholder">📷 Add your Clydesdale photos here</div>
+        </div>
+      </div>
+
+      <!-- CHAPTER 2 -->
+      <div class="chapter">
+        <div class="chapter-header" onclick="toggleChapter(this)">
+          <div class="chapter-icon">🌱</div>
+          <div class="chapter-title">
+            <h3>Young Rider</h3>
+            <span>Brookson Farms, Ottawa — 2017</span>
+          </div>
+          <div class="chapter-arrow">▼</div>
+        </div>
+        <div class="chapter-detail">
+          <p>I started riding in 2017 at Brookson Farms in Ottawa, Canada. We learned how to tack, ride, and care for horses. This is where the spark truly started.</p>
+          <div class="video-placeholder">🎥 Add your video here</div>
+        </div>
+      </div>
+
+      <!-- CHAPTER 3 -->
+      <div class="chapter">
+        <div class="chapter-header" onclick="toggleChapter(this)">
+          <div class="chapter-icon">🍁</div>
+          <div class="chapter-title">
+            <h3>Back to Canada</h3>
+            <span>Turnout Stables</span>
+          </div>
+          <div class="chapter-arrow">▼</div>
+        </div>
+        <div class="chapter-detail">
+          <p>We visited our old hometown and rode at Turnout Stables. Here we tried our jumping skills and had fun in the sun.</p>
+          <div class="video-placeholder">🎥 Add your video here</div>
+        </div>
+      </div>
+
+      <!-- CHAPTER 4 -->
+      <div class="chapter">
+        <div class="chapter-header" onclick="toggleChapter(this)">
+          <div class="chapter-icon">🤠</div>
+          <div class="chapter-title">
+            <h3>Coming to Texas</h3>
+            <span>Wells Stables — 2022 to 2024</span>
+          </div>
+          <div class="chapter-arrow">▼</div>
+        </div>
+        <div class="chapter-detail">
+          <p>I joined Wells Stables in 2022 and remained with them until 2024. I learned the basics of horse showing in both the English and Western divisions.</p>
+          <div class="video-placeholder">🎥 Add your video here</div>
+        </div>
+      </div>
+
+      <!-- CHAPTER 5 -->
+      <div class="chapter">
+        <div class="chapter-header" onclick="toggleChapter(this)">
+          <div class="chapter-icon">🏟️</div>
+          <div class="chapter-title">
+            <h3>Show 1 — Lone Star Youth</h3>
+            <span>San Patricio Fairgrounds — May 2023</span>
+          </div>
+          <div class="chapter-arrow">▼</div>
+        </div>
+        <div class="chapter-detail">
+          <p>My first ever horse show at the Lone Star Youth Horse Association at San Patricio Fairgrounds. A huge milestone in my riding journey!</p>
+          <div class="video-placeholder">🎥 Add your show video here</div>
+        </div>
+      </div>
+
+      <!-- CHAPTER 6 -->
+      <div class="chapter">
+        <div class="chapter-header" onclick="toggleChapter(this)">
+          <div class="chapter-icon">🥇</div>
+          <div class="chapter-title">
+            <h3>Show 2 — High Point Winner!</h3>
+            <span>San Patricio Fairgrounds — September 2023</span>
+          </div>
+          <div class="chapter-arrow">▼</div>
+        </div>
+        <div class="chapter-detail">
+          <span class="badge">🏆 High Point Winner</span>
+          <p>My second show at the Lone Star Youth Horse Association — and I won High Point! All the hard work and early mornings paid off.</p>
+          <div class="video-placeholder">🎥 Add your winning video here</div>
+        </div>
+      </div>
+
+      <!-- CHAPTER 7 -->
+      <div class="chapter">
+        <div class="chapter-header" onclick="toggleChapter(this)">
+          <div class="chapter-icon">🫐</div>
+          <div class="chapter-title">
+            <h3>Blueberry Creek</h3>
+            <span>San Antonio</span>
+          </div>
+          <div class="chapter-arrow">▼</div>
+        </div>
+        <div class="chapter-detail">
+          <p>Lessons at Blueberry Creek in San Antonio — another great experience adding to my skills as a rider.</p>
+          <div class="video-placeholder">🎥 Add your video here</div>
+        </div>
+      </div>
+
+      <!-- CHAPTER 8 -->
+      <div class="chapter">
+        <div class="chapter-header" onclick="toggleChapter(this)">
+          <div class="chapter-icon">🌊</div>
+          <div class="chapter-title">
+            <h3>Beach Riding & Trail Adventures</h3>
+            <span>The fun ones</span>
+          </div>
+          <div class="chapter-arrow">▼</div>
+        </div>
+        <div class="chapter-detail">
+          <p>Some of my favorite memories on horseback — riding along the beach and exploring trails. Pure joy.</p>
+          <div class="video-placeholder">🎥 Add your beach/trail videos here</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- JAVASCRIPT — this makes the chapters open and close -->
+    <script>
+      function toggleChapter(header) {
+        const detail = header.nextElementSibling;
+        const arrow = header.querySelector('.chapter-arrow');
+        const isOpen = detail.style.display === 'block';
+
+        // Close all chapters first
+        document.querySelectorAll('.chapter-detail').forEach(d => d.style.display = 'none');
+        document.querySelectorAll('.chapter-arrow').forEach(a => a.style.transform = 'rotate(0deg)');
+
+        // Open this one if it was closed
+        if (!isOpen) {
+          detail.style.display = 'block';
+          arrow.style.transform = 'rotate(180deg)';
+        }
+      }
+    </script>
+
+  </body>
+</html>
