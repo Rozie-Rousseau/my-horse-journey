@@ -7,7 +7,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Lato:wght@300;400&display=swap" rel="stylesheet"/>
   <style>
 
-    /* ── BASE ── */
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
@@ -17,7 +16,6 @@
       font-weight: 300;
     }
 
-    /* ── HERO ── */
     .hero {
       background: #2c1810;
       color: #faf6f0;
@@ -51,7 +49,6 @@
       color: #c9a87c;
     }
 
-    /* ── NAV ── */
     nav {
       background: #3d2314;
       display: flex;
@@ -73,7 +70,6 @@
     }
     nav a:hover { color: #faf6f0; }
 
-    /* ── ABOUT ── */
     .about {
       display: flex;
       align-items: center;
@@ -87,6 +83,13 @@
       height: 180px;
       border-radius: 50%;
       object-fit: cover;
+      border: 4px solid #c9a87c;
+      flex-shrink: 0;
+    }
+    .about-placeholder {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
       border: 4px solid #c9a87c;
       flex-shrink: 0;
       background: #d4b896;
@@ -108,7 +111,6 @@
       color: #6b4c2a;
     }
 
-    /* ── SECTION TITLE ── */
     .section-title {
       text-align: center;
       margin: 20px 0 36px;
@@ -126,14 +128,12 @@
       margin: 14px auto 0;
     }
 
-    /* ── TIMELINE ── */
     .timeline {
       max-width: 720px;
       margin: 0 auto;
       padding: 0 24px 80px;
     }
 
-    /* ── CHAPTER CARD ── */
     .chapter {
       background: #fff8f2;
       border: 0.5px solid #d4b896;
@@ -150,16 +150,19 @@
       transition: background 0.2s;
     }
     .chapter-header:hover { background: #f5ede0; }
+
     .year-badge {
-      background: #2c1810;
-      color: #c9a87c;
-      font-size: 11px;
-      padding: 5px 12px;
+      background: #c9a87c;
+      color: #2c1810;
+      font-size: 13px;
+      font-weight: 400;
+      padding: 6px 14px;
       border-radius: 99px;
       letter-spacing: 1px;
       white-space: nowrap;
       flex-shrink: 0;
     }
+
     .chapter-info { flex: 1; }
     .chapter-info h3 {
       font-family: 'Playfair Display', serif;
@@ -181,7 +184,6 @@
     }
     .chapter.open .chevron { transform: rotate(180deg); }
 
-    /* ── CHAPTER BODY ── */
     .chapter-body {
       display: none;
       border-top: 0.5px solid #d4b896;
@@ -196,7 +198,6 @@
       margin-bottom: 20px;
     }
 
-    /* ── VIDEO ── */
     .video-wrap {
       border-radius: 10px;
       overflow: hidden;
@@ -224,7 +225,6 @@
       margin-bottom: 8px;
     }
 
-    /* ── WIN BADGE ── */
     .win-badge {
       display: inline-block;
       background: #c9a87c;
@@ -236,7 +236,6 @@
       margin-bottom: 14px;
     }
 
-    /* ── DIVIDER between timeline sections ── */
     .timeline-divider {
       text-align: center;
       margin: 36px 0 24px;
@@ -261,13 +260,61 @@
       color: #9b7040;
     }
 
-    /* ── FOOTER ── */
-    footer {
+    /* ── CONTACT ── */
+    .contact {
       background: #2c1810;
+      color: #faf6f0;
+      text-align: center;
+      padding: 60px 20px;
+    }
+    .contact h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      font-weight: 400;
+      color: #faf6f0;
+      margin-bottom: 12px;
+    }
+    .contact .line {
+      width: 50px;
+      height: 1px;
+      background: #c9a87c;
+      margin: 0 auto 36px;
+    }
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 15px;
+      color: #faf6f0;
+      text-decoration: none;
+      letter-spacing: 0.5px;
+      transition: color 0.2s;
+    }
+    .contact-item:hover { color: #c9a87c; }
+    .contact-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1px solid #c9a87c;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+
+    footer {
+      background: #1a0f0a;
       color: #c9a87c;
       text-align: center;
-      padding: 30px;
-      font-size: 12px;
+      padding: 20px;
+      font-size: 11px;
       letter-spacing: 1px;
     }
 
@@ -283,19 +330,20 @@
     <p class="subtitle">Rozella Rousseau</p>
   </div>
 
-  <!-- NAV — each link scrolls to a section -->
+  <!-- NAV -->
   <nav>
     <a href="#story">My Story</a>
-    <a href="#journey">The Journey</a>
-    <a href="#shows">Shows</a>
-    <a href="#adventures">Adventures</a>
+    <a href="#journey">Journey</a>
+    <a href="#contact">Contact</a>
   </nav>
 
-  <!-- ABOUT / MY STORY -->
+  <!-- ABOUT -->
   <section id="story">
     <div class="about">
-      <!-- swap src for your real photo later! -->
-      <div class="about-img">🐴</div>
+      <!-- Once you have rozella.jpg in your images folder, 
+           replace the div below with:
+           <img src="images/rozella.jpg" class="about-img" alt="Rozella" /> -->
+      <div class="about-placeholder">🐴</div>
       <div>
         <h2>Hello, I am Rozella!</h2>
         <p>An aspiring veterinarian who loves adventures, being outdoors, and learning new things. I am also very passionate about horses.</p>
@@ -350,7 +398,7 @@
         </div>
       </div>
 
-<!-- Chapter 3 -->
+      <!-- Chapter 3 -->
       <div class="chapter">
         <div class="chapter-header" onclick="toggleChapter(this)">
           <div class="year-badge">2022–2024</div>
@@ -388,7 +436,6 @@
         </div>
       </div>
 
-      
       <!-- Chapter 5 -->
       <div class="chapter">
         <div class="chapter-header" onclick="toggleChapter(this)">
@@ -408,18 +455,18 @@
         </div>
       </div>
 
-<!-- Chapter 6 -->
+      <!-- Chapter 6 -->
       <div class="chapter">
         <div class="chapter-header" onclick="toggleChapter(this)">
-          <div class="year-badge">2024-2026</div>
+          <div class="year-badge">2024–2026</div>
           <div class="chapter-info">
-            <h3>Working A Friend's Horses  
+            <h3>Working A Friend's Horses</h3>
             <span>Brownsville, Texas</span>
           </div>
           <div class="chevron">▼</div>
         </div>
         <div class="chapter-body">
-          <p>Rode and did ground work for three horses weekly. Felt the challenges of non-school horses.</p>
+          <p>Rode and did ground work for three horses weekly. Felt the challenges and rewards of working with non-school horses.</p>
           <div class="video-placeholder">
             <div class="play-icon">▶</div>
             Video coming soon
@@ -464,10 +511,9 @@
         <div class="chapter-body">
           <span class="win-badge">🏆 High Point Winner</span>
           <p>My second show and I won High Point. All the hard work and early mornings paid off!</p>
-          <!-- REPLACE the src below with your real YouTube embed link! -->
           <div class="video-placeholder">
             <div class="play-icon">▶</div>
-            Your show video goes here — paste your YouTube link and I'll add it!
+            Video coming soon
           </div>
         </div>
       </div>
@@ -488,7 +534,7 @@
           <div class="chevron">▼</div>
         </div>
         <div class="chapter-body">
-          <p>Unforgetable memories - riding on the beach and exploring trails. Pure joy.</p>
+          <p>Unforgettable memories — riding on the beach and exploring trails. Pure joy.</p>
           <div class="video-placeholder">
             <div class="play-icon">▶</div>
             Videos & photos coming soon
@@ -496,6 +542,32 @@
         </div>
       </div>
 
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="contact">
+      <h2>Get In Touch</h2>
+      <div class="line"></div>
+      <div class="contact-links">
+
+        <a class="contact-item" href="mailto:rozellarousseau@gmail.com">
+          <div class="contact-icon">✉</div>
+          rozellarousseau@gmail.com
+        </a>
+
+        <a class="contact-item" href="tel:9562978228">
+          <div class="contact-icon">✆</div>
+          956-297-8228
+        </a>
+
+        <a class="contact-item" href="YOUR-LINKEDIN-URL-HERE" target="_blank">
+          <div class="contact-icon">in</div>
+          Rozella Rousseau Fadaie — LinkedIn
+        </a>
+
+      </div>
     </div>
   </section>
 
