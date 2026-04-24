@@ -86,18 +86,6 @@
       border: 4px solid #c9a87c;
       flex-shrink: 0;
     }
-    .about-placeholder {
-      width: 180px;
-      height: 180px;
-      border-radius: 50%;
-      border: 4px solid #c9a87c;
-      flex-shrink: 0;
-      background: #d4b896;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 60px;
-    }
     .about h2 {
       font-family: 'Playfair Display', serif;
       font-size: 32px;
@@ -198,6 +186,29 @@
       margin-bottom: 20px;
     }
 
+    /* Photo grid */
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    .photo-grid img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 0.5px solid #d4b896;
+    }
+    .photo-single img {
+      width: 100%;
+      max-height: 400px;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 0.5px solid #d4b896;
+      margin-bottom: 16px;
+    }
+
     .video-wrap {
       border-radius: 10px;
       overflow: hidden;
@@ -260,7 +271,6 @@
       color: #9b7040;
     }
 
-    /* ── CONTACT ── */
     .contact {
       background: #2c1810;
       color: #faf6f0;
@@ -340,10 +350,7 @@
   <!-- ABOUT -->
   <section id="story">
     <div class="about">
-      <!-- Once you have rozella.jpg in your images folder, 
-           replace the div below with:
-           <img src="images/rozella.jpg" class="about-img" alt="Rozella" /> -->
-      <div class="about-placeholder">🐴</div>
+      <img src="images/IMG_2777.jpg" class="about-img" alt="Rozella" />
       <div>
         <h2>Hello, I am Rozella!</h2>
         <p>An aspiring veterinarian who loves adventures, being outdoors, and learning new things. I am also very passionate about horses.</p>
@@ -360,7 +367,7 @@
 
     <div class="timeline">
 
-      <!-- Chapter 1 -->
+      <!-- Chapter 1 — Horse Lover -->
       <div class="chapter">
         <div class="chapter-header" onclick="toggleChapter(this)">
           <div class="year-badge">Always</div>
@@ -372,14 +379,14 @@
         </div>
         <div class="chapter-body">
           <p>I have always loved horses from a very young age. Little did I know how my future would unfold.</p>
-          <div class="video-placeholder">
-            <div class="play-icon">📷</div>
-            Photos coming soon
+          <div class="photo-grid">
+            <img src="images/IMG_2779.jpg" alt="Early horse memories" />
+            <img src="images/IMG_2785.jpg" alt="Early horse memories" />
           </div>
         </div>
       </div>
 
-      <!-- Chapter 2 -->
+      <!-- Chapter 2 — Brookson Farms -->
       <div class="chapter">
         <div class="chapter-header" onclick="toggleChapter(this)">
           <div class="year-badge">2017</div>
@@ -391,6 +398,13 @@
         </div>
         <div class="chapter-body">
           <p>I started riding in 2017 at Brookson Farms in Ottawa, Canada. We learned how to tack, ride, and care for horses. This is where the spark truly started.</p>
+          <div class="photo-grid">
+            <img src="images/brookson.jpg" alt="Brookson Farms" />
+            <img src="images/brokson.jpg" alt="Brookson Farms" />
+            <img src="images/broson.jpg" alt="Brookson Farms" />
+            <img src="images/bson.jpg" alt="Brookson Farms" />
+            <img src="images/bson2.jpg" alt="Brookson Farms" />
+          </div>
           <div class="video-placeholder">
             <div class="play-icon">▶</div>
             Video coming soon
@@ -398,7 +412,7 @@
         </div>
       </div>
 
-      <!-- Chapter 3 -->
+      <!-- Chapter 3 — Coming to Texas -->
       <div class="chapter">
         <div class="chapter-header" onclick="toggleChapter(this)">
           <div class="year-badge">2022–2024</div>
@@ -410,6 +424,9 @@
         </div>
         <div class="chapter-body">
           <p>I joined Wells Stables in 2022 and remained with them until 2024. I learned the basics of horse showing in both the English and Western divisions.</p>
+          <div class="photo-single">
+            <img src="images/wells.jpg" alt="Wells Stables" />
+          </div>
           <div class="video-placeholder">
             <div class="play-icon">▶</div>
             Video coming soon
@@ -417,7 +434,7 @@
         </div>
       </div>
 
-      <!-- Chapter 4 -->
+      <!-- Chapter 4 — Back to Canada -->
       <div class="chapter">
         <div class="chapter-header" onclick="toggleChapter(this)">
           <div class="year-badge">Coming soon</div>
@@ -429,6 +446,9 @@
         </div>
         <div class="chapter-body">
           <p>We visited our old hometown and rode at Turnout Stables. Here we tried our jumping skills and had fun in the sun.</p>
+          <div class="photo-single">
+            <img src="images/canada_friend_horse.jpg" alt="Turnout Stables Canada" />
+          </div>
           <div class="video-placeholder">
             <div class="play-icon">▶</div>
             Video coming soon
@@ -436,7 +456,7 @@
         </div>
       </div>
 
-      <!-- Chapter 5 -->
+      <!-- Chapter 5 — Blueberry Creek -->
       <div class="chapter">
         <div class="chapter-header" onclick="toggleChapter(this)">
           <div class="year-badge">2026</div>
@@ -455,7 +475,7 @@
         </div>
       </div>
 
-      <!-- Chapter 6 -->
+      <!-- Chapter 6 — Working A Friend's Horses -->
       <div class="chapter">
         <div class="chapter-header" onclick="toggleChapter(this)">
           <div class="year-badge">2024–2026</div>
@@ -484,7 +504,7 @@
         <div class="chapter-header" onclick="toggleChapter(this)">
           <div class="year-badge">May 2023</div>
           <div class="chapter-info">
-            <h3>Show 1 — LSYHA 18 under walk trot</h3>
+            <h3>Show 1 — Lone Star Youth</h3>
             <span>San Patricio Fairgrounds</span>
           </div>
           <div class="chevron">▼</div>
@@ -504,13 +524,16 @@
           <div class="year-badge">Sept 2023</div>
           <div class="chapter-info">
             <h3>Show 2 — High Point Winner!</h3>
-            <span>San Patricio Fairgrounds</span>
+            <span>San Patricio Fairgrounds · Lone Star Youth</span>
           </div>
           <div class="chevron">▼</div>
         </div>
         <div class="chapter-body">
           <span class="win-badge">🏆 High Point Winner</span>
-          <p>My second show and I won High Point. All the hard work and late evenings paid off!</p>
+          <p>My second show and I won High Point. All the hard work and early mornings paid off!</p>
+          <div class="photo-single">
+            <img src="images/show2.jpg" alt="Show 2 High Point" />
+          </div>
           <div class="video-placeholder">
             <div class="play-icon">▶</div>
             Video coming soon
@@ -523,7 +546,7 @@
         <span>Adventures</span>
       </div>
 
-      <!-- Chapter 9 -->
+      <!-- Chapter 9 — Beach & Trail -->
       <div class="chapter">
         <div class="chapter-header" onclick="toggleChapter(this)">
           <div class="year-badge">Coming soon</div>
@@ -534,10 +557,14 @@
           <div class="chevron">▼</div>
         </div>
         <div class="chapter-body">
-          <p>Unforgettable memories — riding on the beach and exploring trails. Pure joy.</p>
+          <p>Unforgettable memories — riding on the beach and exploring trails. Even rode by the SpaceX launch site!</p>
+          <div class="photo-grid">
+            <img src="images/beach.jpg" alt="Beach riding" />
+            <img src="images/beachrockets.jpeg" alt="Riding by SpaceX" />
+          </div>
           <div class="video-placeholder">
             <div class="play-icon">▶</div>
-            Videos & photos coming soon
+            Videos coming soon
           </div>
         </div>
       </div>
@@ -551,22 +578,18 @@
       <h2>Get In Touch</h2>
       <div class="line"></div>
       <div class="contact-links">
-
         <a class="contact-item" href="mailto:rozellarousseau@gmail.com">
           <div class="contact-icon">✉</div>
           rozellarousseau@gmail.com
         </a>
-
         <a class="contact-item" href="tel:9562978228">
           <div class="contact-icon">✆</div>
           956-297-8228
         </a>
-
         <a class="contact-item" href="https://www.linkedin.com/in/rozella-rousseau-fadaie-386701320" target="_blank">
           <div class="contact-icon">in</div>
           Rozella Rousseau Fadaie — LinkedIn
         </a>
-
       </div>
     </div>
   </section>
