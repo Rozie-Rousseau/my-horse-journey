@@ -164,3 +164,451 @@
       font-size: 12px;
       color: #9b7040;
       letter-spacing: 0.5px;
+    }
+    .chevron {
+      color: #c9a87c;
+      font-size: 13px;
+      transition: transform 0.3s;
+      flex-shrink: 0;
+    }
+    .chapter.open .chevron { transform: rotate(180deg); }
+
+    .chapter-body {
+      display: none;
+      border-top: 0.5px solid #d4b896;
+      padding: 24px;
+      background: #fffcf8;
+    }
+    .chapter.open .chapter-body { display: block; }
+    .chapter-body p {
+      font-size: 15px;
+      line-height: 1.9;
+      color: #5a3e28;
+      margin-bottom: 20px;
+    }
+
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    .photo-grid img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 8px;
+      border: 0.5px solid #d4b896;
+    }
+    .photo-single img {
+      width: 100%;
+      max-height: 400px;
+      object-fit: cover;
+      object-position: center top;
+      border-radius: 8px;
+      border: 0.5px solid #d4b896;
+      margin-bottom: 16px;
+    }
+
+    .video-wrap {
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 12px;
+      background: #2c1810;
+    }
+    .video-wrap iframe {
+      width: 100%;
+      height: 360px;
+      display: block;
+      border: none;
+    }
+    .video-placeholder {
+      background: #2c1810;
+      border-radius: 10px;
+      padding: 40px 20px;
+      text-align: center;
+      color: #c9a87c;
+      font-size: 13px;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+    }
+    .video-placeholder .play-icon {
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
+
+    .win-badge {
+      display: inline-block;
+      background: #c9a87c;
+      color: #2c1810;
+      font-size: 11px;
+      padding: 5px 16px;
+      border-radius: 99px;
+      letter-spacing: 1px;
+      margin-bottom: 14px;
+    }
+
+    .timeline-divider {
+      text-align: center;
+      margin: 36px 0 24px;
+      position: relative;
+    }
+    .timeline-divider::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: #d4b896;
+    }
+    .timeline-divider span {
+      position: relative;
+      background: #faf6f0;
+      padding: 0 16px;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #9b7040;
+    }
+
+    .contact {
+      background: #2c1810;
+      color: #faf6f0;
+      text-align: center;
+      padding: 60px 20px;
+    }
+    .contact h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      font-weight: 400;
+      color: #faf6f0;
+      margin-bottom: 12px;
+    }
+    .contact .line {
+      width: 50px;
+      height: 1px;
+      background: #c9a87c;
+      margin: 0 auto 36px;
+    }
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 15px;
+      color: #faf6f0;
+      text-decoration: none;
+      letter-spacing: 0.5px;
+      transition: color 0.2s;
+    }
+    .contact-item:hover { color: #c9a87c; }
+    .contact-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1px solid #c9a87c;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+
+    footer {
+      background: #1a0f0a;
+      color: #c9a87c;
+      text-align: center;
+      padding: 20px;
+      font-size: 11px;
+      letter-spacing: 1px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <div class="hero">
+    <p class="eyebrow">Welcome to</p>
+    <h1>My Riding Journey</h1>
+    <div class="hero-line"></div>
+    <p class="subtitle">Rozella Rousseau</p>
+  </div>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#story">My Story</a>
+    <a href="#journey">Journey</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <!-- ABOUT -->
+  <section id="story">
+    <div class="about">
+      <img src="images/profile.jpg" class="about-img" alt="Rozella" />
+      <div>
+        <h2>Hello, I am Rozella!</h2>
+        <p>An aspiring veterinarian who loves adventures, being outdoors, and learning new things. I am also very passionate about horses.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section id="journey">
+    <div class="section-title">
+      <h2>The Journey</h2>
+      <div class="line"></div>
+    </div>
+
+    <div class="timeline">
+
+      <!-- Chapter 1 — Horse Lover -->
+      <div class="chapter">
+        <div class="chapter-header" onclick="toggleChapter(this)">
+          <div class="year-badge">Always</div>
+          <div class="chapter-info">
+            <h3>Horse Lover</h3>
+            <span>Where it all began</span>
+          </div>
+          <div class="chevron">▼</div>
+        </div>
+        <div class="chapter-body">
+          <p>I have always loved horses from a very young age. Little did I know how my future would unfold.</p>
+          <div class="photo-grid">
+            <img src="images/IMG_2779.jpg" alt="Early horse memories" />
+            <img src="images/IMG_2785.jpg" alt="Early horse memories" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Chapter 2 — Brookson Farms -->
+      <div class="chapter">
+        <div class="chapter-header" onclick="toggleChapter(this)">
+          <div class="year-badge">2017</div>
+          <div class="chapter-info">
+            <h3>Young Rider</h3>
+            <span>Brookson Farms · Ottawa, Canada</span>
+          </div>
+          <div class="chevron">▼</div>
+        </div>
+        <div class="chapter-body">
+          <p>I started riding in 2017 at Brookson Farms in Ottawa, Canada. We learned how to tack, ride, and care for horses. This is where the spark truly started.</p>
+          <div class="photo-grid">
+            <img src="images/brookson.jpg" alt="Brookson Farms" />
+            <img src="images/brokson.jpg" alt="Brookson Farms" />
+            <img src="images/broson.jpg" alt="Brookson Farms" />
+            <img src="images/bson.jpg" alt="Brookson Farms" />
+            <img src="images/bson2.jpg" alt="Brookson Farms" />
+          </div>
+          <div class="video-placeholder">
+            <div class="play-icon">▶</div>
+            Video coming soon
+          </div>
+        </div>
+      </div>
+
+      <!-- Chapter 3 — Coming to Texas -->
+      <div class="chapter">
+        <div class="chapter-header" onclick="toggleChapter(this)">
+          <div class="year-badge">2022–2024</div>
+          <div class="chapter-info">
+            <h3>Coming to Texas</h3>
+            <span>Wells Stables</span>
+          </div>
+          <div class="chevron">▼</div>
+        </div>
+        <div class="chapter-body">
+          <p>I joined Wells Stables in 2022 and remained with them until 2024. I learned the basics of horse showing in both the English and Western divisions.</p>
+          <div class="photo-single">
+            <img src="images/wells.jpg" alt="Wells Stables" />
+          </div>
+          <div class="video-placeholder">
+            <div class="play-icon">▶</div>
+            Video coming soon
+          </div>
+        </div>
+      </div>
+
+      <!-- Chapter 4 — Back to Canada -->
+      <div class="chapter">
+        <div class="chapter-header" onclick="toggleChapter(this)">
+          <div class="year-badge">Coming soon</div>
+          <div class="chapter-info">
+            <h3>Back to Canada</h3>
+            <span>Turnout Stables</span>
+          </div>
+          <div class="chevron">▼</div>
+        </div>
+        <div class="chapter-body">
+          <p>We visited our old hometown and rode at Turnout Stables. Here we tried our jumping skills and had fun in the sun.</p>
+          <div class="photo-single">
+            <img src="images/canada friend horse.jpg" alt="Turnout Stables Canada" />
+          </div>
+          <div class="video-placeholder">
+            <div class="play-icon">▶</div>
+            Video coming soon
+          </div>
+        </div>
+      </div>
+
+      <!-- Chapter 5 — Blueberry Creek -->
+      <div class="chapter">
+        <div class="chapter-header" onclick="toggleChapter(this)">
+          <div class="year-badge">2026</div>
+          <div class="chapter-info">
+            <h3>Blueberry Creek</h3>
+            <span>San Antonio, Texas</span>
+          </div>
+          <div class="chevron">▼</div>
+        </div>
+        <div class="chapter-body">
+          <p>Lessons at Blueberry Creek in San Antonio — another great stable adding new skills to my riding.</p>
+          <div class="video-placeholder">
+            <div class="play-icon">▶</div>
+            Video coming soon
+          </div>
+        </div>
+      </div>
+
+      <!-- Chapter 6 — Working A Friend's Horses -->
+      <div class="chapter">
+        <div class="chapter-header" onclick="toggleChapter(this)">
+          <div class="year-badge">2024–2026</div>
+          <div class="chapter-info">
+            <h3>Working A Friend's Horses</h3>
+            <span>Brownsville, Texas</span>
+          </div>
+          <div class="chevron">▼</div>
+        </div>
+        <div class="chapter-body">
+          <p>Rode and did ground work for three horses weekly. Felt the challenges and rewards of working with non-school horses.</p>
+          <div class="video-placeholder">
+            <div class="play-icon">▶</div>
+            Video coming soon
+          </div>
+        </div>
+      </div>
+
+      <!-- SHOWS DIVIDER -->
+      <div class="timeline-divider" id="shows">
+        <span>Shows</span>
+      </div>
+
+      <!-- Chapter 7 — Show 1 -->
+      <div class="chapter">
+        <div class="chapter-header" onclick="toggleChapter(this)">
+          <div class="year-badge">May 2023</div>
+          <div class="chapter-info">
+            <h3>Show 1 — Lone Star Youth</h3>
+            <span>San Patricio Fairgrounds</span>
+          </div>
+          <div class="chevron">▼</div>
+        </div>
+        <div class="chapter-body">
+          <p>My very first horse show at the Lone Star Youth Horse Association. A huge milestone in my riding journey!</p>
+          <div class="video-placeholder">
+            <div class="play-icon">▶</div>
+            Video coming soon
+          </div>
+        </div>
+      </div>
+
+      <!-- Chapter 8 — Show 2 -->
+      <div class="chapter">
+        <div class="chapter-header" onclick="toggleChapter(this)">
+          <div class="year-badge">Sept 2023</div>
+          <div class="chapter-info">
+            <h3>Show 2 — High Point Winner!</h3>
+            <span>San Patricio Fairgrounds · Lone Star Youth</span>
+          </div>
+          <div class="chevron">▼</div>
+        </div>
+        <div class="chapter-body">
+          <span class="win-badge">🏆 High Point Winner</span>
+          <p>My second show and I won High Point. All the hard work and early mornings paid off!</p>
+          <div class="photo-single">
+            <img src="images/show2.jpg" alt="Show 2 High Point" />
+          </div>
+          <div class="video-placeholder">
+            <div class="play-icon">▶</div>
+            Video coming soon
+          </div>
+        </div>
+      </div>
+
+      <!-- ADVENTURES DIVIDER -->
+      <div class="timeline-divider" id="adventures">
+        <span>Adventures</span>
+      </div>
+
+      <!-- Chapter 9 — Beach & Trail -->
+      <div class="chapter">
+        <div class="chapter-header" onclick="toggleChapter(this)">
+          <div class="year-badge">Coming soon</div>
+          <div class="chapter-info">
+            <h3>Beach Riding & Trail Adventures</h3>
+            <span>The fun ones</span>
+          </div>
+          <div class="chevron">▼</div>
+        </div>
+        <div class="chapter-body">
+          <p>Unforgettable memories — riding on the beach and exploring trails. Even rode by the SpaceX launch site!</p>
+          <div class="photo-grid">
+            <img src="images/beach.jpg" alt="Beach riding" />
+            <img src="images/beachrockets.jpeg" alt="Riding by SpaceX" />
+          </div>
+          <div class="video-placeholder">
+            <div class="play-icon">▶</div>
+            Videos coming soon
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="contact">
+      <h2>Get In Touch</h2>
+      <div class="line"></div>
+      <div class="contact-links">
+        <a class="contact-item" href="mailto:rozellarousseau@gmail.com">
+          <div class="contact-icon">✉</div>
+          rozellarousseau@gmail.com
+        </a>
+        <a class="contact-item" href="tel:9562978228">
+          <div class="contact-icon">✆</div>
+          956-297-8228
+        </a>
+        <a class="contact-item" href="https://www.linkedin.com/in/rozella-rousseau-fadaie-386701320" target="_blank">
+          <div class="contact-icon">in</div>
+          Rozella Rousseau Fadaie — LinkedIn
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>Rozella Rousseau &nbsp;·&nbsp; My Riding Journey</p>
+  </footer>
+
+  <script>
+    function toggleChapter(header) {
+      const chapter = header.parentElement;
+      const isOpen = chapter.classList.contains('open');
+      document.querySelectorAll('.chapter.open').forEach(c => c.classList.remove('open'));
+      if (!isOpen) chapter.classList.add('open');
+    }
+  </script>
+
+</body>
+</html>
