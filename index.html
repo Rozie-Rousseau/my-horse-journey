@@ -243,13 +243,13 @@
 
     .photo-show-row {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
       gap: 10px;
       margin-bottom: 16px;
     }
     .photo-show-row img {
       width: 100%;
-      height: 380px;
+      height: 220px;
       object-fit: cover;
       object-position: center top;
       border-radius: 8px;
@@ -447,10 +447,9 @@
         <div class="chapter-body">
           <p>I started riding in 2017 at Brookson Farms in Ottawa, Canada. We learned how to tack, ride, and care for horses. This is where the spark truly started.</p>
           <div class="photo-grid">
-            <img src="images/bson.jpg" alt="Brookson Farms" style="object-position: center top;" />
-            <img src="images/brookson.jpg" alt="Brookson Farms" style="object-position: center top;" />
-            <!-- shifted more right and down -->
-            <img src="images/broson.jpg" alt="Brookson Farms" style="object-position: 85% 60%;" />
+            <img src="images/bson.jpg" alt="Brookson Farms" style="object-position: right top; object-fit: contain;" />
+            <img src="images/brookson.jpg" alt="Brookson Farms" style="object-position: right top; object-fit: contain;" />
+            <img src="images/broson.jpg" alt="Brookson Farms" style="object-position: right 60%; object-fit: contain;" />
           </div>
           <div class="video-placeholder">
             <div class="play-icon">▶</div>
@@ -517,7 +516,6 @@
         </div>
         <div class="chapter-body">
           <p>Lessons at Blueberry Creek in San Antonio — another great stable adding new skills to my riding.</p>
-          <!-- less zoomed, shifted up to show feet and top of head -->
           <div class="photo-single">
             <img src="images/blueberry.jpg" alt="Blueberry Creek" style="max-height: 380px; object-fit: contain; object-position: center;" />
           </div>
@@ -540,7 +538,6 @@
         </div>
         <div class="chapter-body">
           <p>Rode and did ground work for three horses weekly. Felt the challenges and rewards of working with non-school horses.</p>
-          <!-- all same height, no inline height override -->
           <div class="photo-grid">
             <img src="images/IMG_3079.jpg" alt="Friend's horses" style="object-position: center top;" />
             <img src="images/IMG_3096.jpg" alt="Friend's horses" style="object-position: center top;" />
@@ -572,9 +569,10 @@
           <p>My very first horse show at the Lone Star Youth Horse Association. A huge milestone in my riding journey!</p>
           <div class="video-wrap">
             <iframe
-              src="https://www.youtube.com/embed/l5ERHOlpUtI"
+              src="https://www.youtube.com/embed/l5ERHOlpUtI?vq=hd1080"
               title="Rozella's First Horse Show"
-              allowfullscreen>
+              allowfullscreen
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
             </iframe>
           </div>
         </div>
@@ -623,9 +621,7 @@
         <div class="chapter-body">
           <p>Unforgettable memories — riding on the beach and exploring trails. Even rode by the SpaceX launch site!</p>
           <div class="photo-portrait">
-            <!-- more left to see horse head, brightened -->
             <img src="images/beach.jpg" alt="Beach riding" style="object-position: 100% 50%; filter: brightness(1.2);" />
-            <!-- more sky and horse -->
             <img src="images/beachrockets.jpg" alt="Riding by SpaceX" style="object-position: center 30%;" />
           </div>
           <div class="video-placeholder">
